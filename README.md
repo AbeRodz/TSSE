@@ -25,7 +25,7 @@ Para `compilar` el proyecto se utiliza el siguiente comando:
 make all
 ```
 
-## Tests implementados 
+## Tests implementados
 
 - Después de la inicialización todos los LEDs deben quedar apagados.
 - Se puede prender un LED individual.

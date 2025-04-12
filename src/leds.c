@@ -51,28 +51,28 @@ static uint16_t * port_address;
 
 /* === Public function implementation ========================================================== */
 
-void  LedsInit(uint16_t *leds) {
+void LedsInit(uint16_t * leds) {
     port_address = leds;
     LedsTurnOffAll();
 }
 
-static uint16_t LedToMask(uint8_t led){
-    return (LED_BIT_ON<<(led - LEDS_TO_BIT_OFFSET));
+static uint16_t LedToMask(uint8_t led) {
+    return (LED_BIT_ON << (led - LEDS_TO_BIT_OFFSET));
 }
-void LedTurnOnSingle(uint8_t led){
-    *port_address |= LedToMask(led); 
+void LedTurnOnSingle(uint8_t led) {
+    *port_address |= LedToMask(led);
 }
-void LedTurnOffSingle(uint8_t led){
-    *port_address  &= ~LedToMask(led); 
+void LedTurnOffSingle(uint8_t led) {
+    *port_address &= ~LedToMask(led);
 }
-void LedsTurnOffAll(){
-    *port_address  = ALL_LEDS_OFF; 
+void LedsTurnOffAll() {
+    *port_address = ALL_LEDS_OFF;
 }
-void LedsTurnOnAll(){
-    *port_address  = ALL_LEDS_ON; 
+void LedsTurnOnAll() {
+    *port_address = ALL_LEDS_ON;
 }
 
-bool isLedOn(uint8_t led){
+bool isLedOn(uint8_t led) {
     return (*port_address & LedToMask(led)) != 0;
 }
 /* === End of documentation ==================================================================== */
